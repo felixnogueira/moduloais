@@ -2,9 +2,9 @@
 Name=RustDeskURL Scheme Handler
 NoDisplay=true
 MimeType=x-scheme-handler/rustdesk;
-TryExec=rustdesk
-Exec=rustdesk %u
-Icon=rustdesk
+TryExec=moduloais
+Exec=moduloais %u
+Icon=moduloais
 Terminal=false
 Type=Application
 StartupNotify=false
