@@ -377,7 +377,7 @@ jobs:
               # build flutter
               pushd flutter
               flutter build apk --release --target-platform android-arm64 --split-per-abi
-              mv build/app/outputs/flutter-apk/app-arm64-v8a-release.apk ../rustdesk-${{ env.VERSION }}-${{ matrix.job.arch }}.apk
+              mv build/app/outputs/flutter-apk/app-arm64-v8a-release.apk ../moduloais-${{ env.VERSION }}-${{ matrix.job.arch }}.apk
             ;;
             armv7-linux-androideabi)
               mkdir -p ./flutter/android/app/src/main/jniLibs/armeabi-v7a
@@ -386,12 +386,12 @@ jobs:
               # build flutter
               pushd flutter
               flutter build apk --release --target-platform android-arm --split-per-abi
-              mv build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk ../rustdesk-${{ env.VERSION }}-${{ matrix.job.arch }}.apk
+              mv build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk ../moduloais-${{ env.VERSION }}-${{ matrix.job.arch }}.apk
             ;;
           esac
           popd
           mkdir -p signed-apk; pushd signed-apk
-          mv ../rustdesk-${{ env.VERSION }}-${{ matrix.job.arch }}.apk ./rustdesk-test-${{ matrix.job.ref }}-${{ matrix.job.ndk }}.apk
+          mv ../moduloais-${{ env.VERSION }}-${{ matrix.job.arch }}.apk ./moduloais-test-${{ matrix.job.ref }}-${{ matrix.job.ndk }}.apk
 
       - uses: r0adkll/sign-android-release@v1
         name: Sign app APK

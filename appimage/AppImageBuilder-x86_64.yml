@@ -2,24 +2,24 @@
 version: 1
 script:
  - rm -rf ./AppDir || true
- - bsdtar -zxvf rustdesk.deb
+ - bsdtar -zxvf moduloais.deb
  - tar -xvf ./data.tar.xz
  - mkdir ./AppDir
  - mv ./usr ./AppDir/usr
  # 32x32 icon
- - for i in {32,64,128}; do mkdir -p ./AppDir/usr/share/icons/hicolor/$i\x$i/apps/; cp ../res/$i\x$i.png ./AppDir/usr/share/icons/hicolor/$i\x$i/apps/rustdesk.png; done
- - mkdir -p ./AppDir/usr/share/icons/hicolor/scalable/apps/; cp ../res/scalable.svg ./AppDir/usr/share/icons/hicolor/scalable/apps/rustdesk.svg
+ - for i in {32,64,128}; do mkdir -p ./AppDir/usr/share/icons/hicolor/$i\x$i/apps/; cp ../res/$i\x$i.png ./AppDir/usr/share/icons/hicolor/$i\x$i/apps/moduloais.png; done
+ - mkdir -p ./AppDir/usr/share/icons/hicolor/scalable/apps/; cp ../res/scalable.svg ./AppDir/usr/share/icons/hicolor/scalable/apps/moduloais.svg
  # desktop file
  # - sed -i "s/Icon=\/usr\/share\/rustdesk\/files\/rustdesk.png/Icon=rustdesk/g" ./AppDir/usr/share/applications/rustdesk.desktop
  - rm -rf ./AppDir/usr/share/applications
 AppDir:
   path: ./AppDir
   app_info:
-    id: rustdesk
-    name: rustdesk
-    icon: rustdesk
-    version: 1.3.0
-    exec: usr/lib/rustdesk/rustdesk
+    id: moduloais
+    name: moduloais
+    icon: moduloais
+    version: 1.2.7
+    exec: usr/lib/moduloais/moduloais
     exec_args: $@
   apt:
     arch:
