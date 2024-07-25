@@ -112,8 +112,8 @@ mod test {
 
     #[test]
     fn test_filename_license_string() {
-        assert!(get_custom_server_from_string("rustdesk.exe").is_err());
-        assert!(get_custom_server_from_string("rustdesk").is_err());
+        assert!(get_custom_server_from_string("moduloais.exe").is_err());
+        assert!(get_custom_server_from_string("moduloais").is_err());
         assert_eq!(
             get_custom_server_from_string("rustdesk-host=server.example.net.exe").unwrap(),
             CustomServer {
