@@ -316,7 +316,7 @@ def build_flutter_deb(version, features):
     system2(
         f'cp -r {flutter_build_dir}/* tmpdeb/usr/lib/moduloais/')
     system2(
-        'cp ../res/moduloais.service tmpdeb/usr/share/moduloais/files/systemd/')
+        'cp ../res/rustdesk.service tmpdeb/usr/share/moduloais/files/systemd/')
     system2(
         'cp ../res/128x128@2x.png tmpdeb/usr/share/icons/hicolor/256x256/apps/rustdesk.png')
     system2(
@@ -591,7 +591,7 @@ def main():
                 system2('mkdir -p tmpdeb/usr/share/icons/hicolor/256x256/apps/')
                 system2('mkdir -p tmpdeb/usr/share/icons/hicolor/scalable/apps/')
                 system2(
-                    'cp res/moduloais.service tmpdeb/usr/share/moduloais/files/systemd/')
+                    'cp res/rustdesk.service tmpdeb/usr/share/moduloais/files/systemd/')
                 system2(
                     'cp res/128x128@2x.png tmpdeb/usr/share/icons/hicolor/256x256/apps/rustdesk.png')
                 system2(
