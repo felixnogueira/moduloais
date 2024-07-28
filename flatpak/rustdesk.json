@@ -1,10 +1,10 @@
 {
-  "id": "com.rustdesk.RustDesk",
+  "id": "com.moduloais.ModuloAIS",
   "runtime": "org.freedesktop.Platform",
   "runtime-version": "23.08",
   "sdk": "org.freedesktop.Sdk",
-  "command": "rustdesk",
-  "icon": "share/icons/hicolor/scalable/apps/rustdesk.svg",
+  "command": "moduloais",
+  "icon": "share/icons/hicolor/scalable/apps/moduloais.svg",
   "modules": [
     "shared-modules/libappindicator/libappindicator-gtk3-12.10.json",
     "xdotool.json",
@@ -30,11 +30,11 @@
         "tar -xvf ./data.tar.xz",
         "cp -r ./usr/*  /app/",
         "mkdir -p /app/bin && ln -s /app/lib/moduloais/moduloais /app/bin/moduloais",
-        "mv /app/share/applications/rustdesk.desktop /app/share/applications/com.rustdesk.RustDesk.desktop",
-        "mv /app/share/applications/rustdesk-link.desktop /app/share/applications/com.rustdesk.RustDesk-link.desktop",
+        "mv /app/share/applications/moduloais.desktop /app/share/applications/com.moduloais.ModuloAIS.desktop",
+        "mv /app/share/applications/moduloais-link.desktop /app/share/applications/com.moduloais.ModuloAIS-link.desktop",
         "sed -i '/^Icon=/ c\\Icon=com.rustdesk.RustDesk' /app/share/applications/*.desktop",
-        "mv /app/share/icons/hicolor/scalable/apps/rustdesk.svg /app/share/icons/hicolor/scalable/apps/com.rustdesk.RustDesk.svg",
-        "for size in 16 24 32 48 64 128 256 512; do\n rsvg-convert -w $size -h $size -f png -o $size.png scalable.svg\n install -Dm644 $size.png /app/share/icons/hicolor/${size}x${size}/apps/com.rustdesk.RustDesk.png\n done"
+        "mv /app/share/icons/hicolor/scalable/apps/moduloais.svg /app/share/icons/hicolor/scalable/apps/com.moduloais.ModuloAIS.svg",
+        "for size in 16 24 32 48 64 128 256 512; do\n rsvg-convert -w $size -h $size -f png -o $size.png scalable.svg\n install -Dm644 $size.png /app/share/icons/hicolor/${size}x${size}/apps/com.moduloais.ModuloAIS.png\n done"
       ],
       "cleanup": ["/include", "/lib/pkgconfig", "/share/gtk-doc"],
       "sources": [

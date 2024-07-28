@@ -1,4 +1,4 @@
-Name:       rustdesk
+Name:       moduloais
 Version:    1.3.0
 Release:    0
 Summary:    RPM package
@@ -19,21 +19,21 @@ The best open-source remote desktop client software, written in Rust.
 
 %install
 
-mkdir -p "%{buildroot}/usr/lib/rustdesk" && cp -r ${HBB}/flutter/build/linux/x64/release/bundle/* -t "%{buildroot}/usr/lib/rustdesk"
+mkdir -p "%{buildroot}/usr/lib/moduloais" && cp -r ${HBB}/flutter/build/linux/x64/release/bundle/* -t "%{buildroot}/usr/lib/moduloais"
 mkdir -p "%{buildroot}/usr/bin"
-install -Dm 644 $HBB/res/rustdesk.service -t "%{buildroot}/usr/share/rustdesk/files"
-install -Dm 644 $HBB/res/rustdesk.desktop -t "%{buildroot}/usr/share/rustdesk/files"
-install -Dm 644 $HBB/res/rustdesk-link.desktop -t "%{buildroot}/usr/share/rustdesk/files"
-install -Dm 644 $HBB/res/128x128@2x.png "%{buildroot}/usr/share/icons/hicolor/256x256/apps/rustdesk.png"
-install -Dm 644 $HBB/res/scalable.svg "%{buildroot}/usr/share/icons/hicolor/scalable/apps/rustdesk.svg"
+install -Dm 644 $HBB/res/rustdesk.service -t "%{buildroot}/usr/share/moduloais/files"
+install -Dm 644 $HBB/res/moduloais.desktop -t "%{buildroot}/usr/share/moduloais/files"
+install -Dm 644 $HBB/res/moduloais-link.desktop -t "%{buildroot}/usr/share/moduloais/files"
+install -Dm 644 $HBB/res/128x128@2x.png "%{buildroot}/usr/share/icons/hicolor/256x256/apps/moduloais.png"
+install -Dm 644 $HBB/res/scalable.svg "%{buildroot}/usr/share/icons/hicolor/scalable/apps/moduloais.svg"
 
 %files
-/usr/lib/rustdesk/*
-/usr/share/rustdesk/files/rustdesk.service
-/usr/share/icons/hicolor/256x256/apps/rustdesk.png
-/usr/share/icons/hicolor/scalable/apps/rustdesk.svg
-/usr/share/rustdesk/files/rustdesk.desktop
-/usr/share/rustdesk/files/rustdesk-link.desktop
+/usr/lib/moduloais/*
+/usr/share/moduloais/files/rustdesk.service
+/usr/share/icons/hicolor/256x256/apps/moduloais.png
+/usr/share/icons/hicolor/scalable/apps/moduloais.svg
+/usr/share/moduloais/files/moduloais.desktop
+/usr/share/moduloais/files/moduloais-link.desktop
 
 %changelog
 # let's skip this for now
@@ -47,26 +47,26 @@ case "$1" in
   ;;
   2)
     # for upgrade
-    systemctl stop rustdesk || true
+    systemctl stop moduloais || true
   ;;
 esac
 
 %post
-cp /usr/share/rustdesk/files/rustdesk.service /etc/systemd/system/rustdesk.service
-cp /usr/share/rustdesk/files/rustdesk.desktop /usr/share/applications/
-cp /usr/share/rustdesk/files/rustdesk-link.desktop /usr/share/applications/
-ln -s /usr/lib/rustdesk/rustdesk /usr/bin/rustdesk
+cp /usr/share/moduloais/files/rustdesk.service /etc/systemd/system/rustdesk.service
+cp /usr/share/moduloais/files/moduloais.desktop /usr/share/applications/
+cp /usr/share/moduloais/files/moduloais-link.desktop /usr/share/applications/
+ln -s /usr/lib/moduloais/moduloais /usr/bin/moduloais
 systemctl daemon-reload
-systemctl enable rustdesk
-systemctl start rustdesk
+systemctl enable moduloais
+systemctl start moduloais
 update-desktop-database
 
 %preun
 case "$1" in
   0)
     # for uninstall
-    systemctl stop rustdesk || true
-    systemctl disable rustdesk || true
+    systemctl stop moduloais || true
+    systemctl disable moduloais || true
     rm /etc/systemd/system/rustdesk.service || true
   ;;
   1)
@@ -78,9 +78,9 @@ esac
 case "$1" in
   0)
     # for uninstall
-    rm /usr/share/applications/rustdesk.desktop || true
-    rm /usr/share/applications/rustdesk-link.desktop || true
-    rm /usr/bin/rustdesk || true
+    rm /usr/share/applications/moduloais.desktop || true
+    rm /usr/share/applications/moduloais-link.desktop || true
+    rm /usr/bin/moduloais || true
     update-desktop-database
   ;;
   1)

@@ -363,15 +363,15 @@ def build_deb_from_folder(version, binary_folder):
     system2(
         'cp ../res/rustdesk.service tmpdeb/usr/share/moduloais/files/systemd/')
     system2(
-        'cp ../res/128x128@2x.png tmpdeb/usr/share/icons/hicolor/256x256/apps/rustdesk.png')
+        'cp ../res/128x128@2x.png tmpdeb/usr/share/icons/hicolor/256x256/apps/moduloais.png')
     system2(
-        'cp ../res/scalable.svg tmpdeb/usr/share/icons/hicolor/scalable/apps/rustdesk.svg')
+        'cp ../res/scalable.svg tmpdeb/usr/share/icons/hicolor/scalable/apps/moduloais.svg')
     system2(
-        'cp ../res/rustdesk.desktop tmpdeb/usr/share/applications/rustdesk.desktop')
+        'cp ../res/moduloais.desktop tmpdeb/usr/share/applications/moduloais.desktop')
     system2(
-        'cp ../res/rustdesk-link.desktop tmpdeb/usr/share/applications/rustdesk-link.desktop')
+        'cp ../res/moduloais-link.desktop tmpdeb/usr/share/applications/moduloais-link.desktop')
     system2(
-        'cp ../res/com.rustdesk.RustDesk.policy tmpdeb/usr/share/polkit-1/actions/')
+        'cp ../res/com.moduloais.ModuloAIS.policy tmpdeb/usr/share/polkit-1/actions/')
     system2(
         "echo \"#!/bin/sh\" >> tmpdeb/usr/share/moduloais/files/polkit && chmod a+x tmpdeb/usr/share/moduloais/files/polkit")
 
@@ -593,13 +593,13 @@ def main():
                 system2(
                     'cp res/rustdesk.service tmpdeb/usr/share/moduloais/files/systemd/')
                 system2(
-                    'cp res/128x128@2x.png tmpdeb/usr/share/icons/hicolor/256x256/apps/rustdesk.png')
+                    'cp res/128x128@2x.png tmpdeb/usr/share/icons/hicolor/256x256/apps/moduloais.png')
                 system2(
-                    'cp res/scalable.svg tmpdeb/usr/share/icons/hicolor/scalable/apps/rustdesk.svg')
+                    'cp res/scalable.svg tmpdeb/usr/share/icons/hicolor/scalable/apps/moduloais.svg')
                 system2(
-                    'cp res/rustdesk.desktop tmpdeb/usr/share/applications/rustdesk.desktop')
+                    'cp res/moduloais.desktop tmpdeb/usr/share/applications/moduloais.desktop')
                 system2(
-                    'cp res/rustdesk-link.desktop tmpdeb/usr/share/applications/rustdesk-link.desktop')
+                    'cp res/moduloais-link.desktop tmpdeb/usr/share/applications/moduloais-link.desktop')
                 os.system('mkdir -p tmpdeb/etc/moduloais/')
                 os.system('cp -a res/startwm.sh tmpdeb/etc/moduloais/')
                 os.system('mkdir -p tmpdeb/etc/X11/moduloais/')
