@@ -322,9 +322,9 @@ def build_flutter_deb(version, features):
     system2(
         'cp ../res/scalable.svg tmpdeb/usr/share/icons/hicolor/scalable/apps/rustdesk.svg')
     system2(
-        'cp ../res/rustdesk.desktop tmpdeb/usr/share/applications/rustdesk.desktop')
+        'cp ../res/moduloais.desktop tmpdeb/usr/share/applications/moduloais.desktop')
     system2(
-        'cp ../res/rustdesk-link.desktop tmpdeb/usr/share/applications/rustdesk-link.desktop')
+        'cp ../res/moduloais-link.desktop tmpdeb/usr/share/applications/moduloais-link.desktop')
     system2(
         'cp ../res/com.rustdesk.RustDesk.policy tmpdeb/usr/share/polkit-1/actions/')
     system2(
