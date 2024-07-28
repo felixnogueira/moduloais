@@ -1316,6 +1316,10 @@ abstract class Moduloais {
 
   FlutterRustBridgeTaskConstMeta get kIsPresetPasswordConstMeta;
 
+  bool isPresetPasswordMobileOnly({dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kIsPresetPasswordMobileOnlyConstMeta;
+
   /// Send a url scheme through the ipc.
   ///
   /// * macOS only
@@ -1439,6 +1443,10 @@ abstract class Moduloais {
 
   FlutterRustBridgeTaskConstMeta get kMainGetHardOptionConstMeta;
 
+  String mainGetBuildinOption({required String key, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kMainGetBuildinOptionConstMeta;
+
   Future<void> mainCheckHwcodec({dynamic hint});
 
   FlutterRustBridgeTaskConstMeta get kMainCheckHwcodecConstMeta;
@@ -1459,6 +1467,7 @@ sealed class EventToUI with _$EventToUI {
   ) = EventToUI_Rgba;
   const factory EventToUI.texture(
     int field0,
+    bool field1,
   ) = EventToUI_Texture;
 }
 
@@ -6417,6 +6426,22 @@ class ModuloaisImpl implements Moduloais {
         argNames: [],
       );
 
+  bool isPresetPasswordMobileOnly({dynamic hint}) {
+    return _platform.executeSync(FlutterRustBridgeSyncTask(
+      callFfi: () => _platform.inner.wire_is_preset_password_mobile_only(),
+      parseSuccessData: _wire2api_bool,
+      constMeta: kIsPresetPasswordMobileOnlyConstMeta,
+      argValues: [],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kIsPresetPasswordMobileOnlyConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "is_preset_password_mobile_only",
+        argNames: [],
+      );
+
   Future<void> sendUrlScheme({required String url, dynamic hint}) {
     var arg0 = _platform.api2wire_String(url);
     return _platform.executeNormal(FlutterRustBridgeTask(
@@ -6871,6 +6896,23 @@ class ModuloaisImpl implements Moduloais {
         argNames: ["key"],
       );
 
+  String mainGetBuildinOption({required String key, dynamic hint}) {
+    var arg0 = _platform.api2wire_String(key);
+    return _platform.executeSync(FlutterRustBridgeSyncTask(
+      callFfi: () => _platform.inner.wire_main_get_buildin_option(arg0),
+      parseSuccessData: _wire2api_String,
+      constMeta: kMainGetBuildinOptionConstMeta,
+      argValues: [key],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kMainGetBuildinOptionConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "main_get_buildin_option",
+        argNames: ["key"],
+      );
+
   Future<void> mainCheckHwcodec({dynamic hint}) {
     return _platform.executeNormal(FlutterRustBridgeTask(
       callFfi: (port_) => _platform.inner.wire_main_check_hwcodec(port_),
@@ -6942,6 +6984,7 @@ class ModuloaisImpl implements Moduloais {
       case 2:
         return EventToUI_Texture(
           _wire2api_usize(raw[1]),
+          _wire2api_bool(raw[2]),
         );
       default:
         throw Exception("unreachable");
@@ -11697,6 +11740,17 @@ class ModuloaisWire implements FlutterRustBridgeWireBase {
   late final _wire_is_preset_password =
       _wire_is_preset_passwordPtr.asFunction<void Function(int)>();
 
+  WireSyncReturn wire_is_preset_password_mobile_only() {
+    return _wire_is_preset_password_mobile_only();
+  }
+
+  late final _wire_is_preset_password_mobile_onlyPtr =
+      _lookup<ffi.NativeFunction<WireSyncReturn Function()>>(
+          'wire_is_preset_password_mobile_only');
+  late final _wire_is_preset_password_mobile_only =
+      _wire_is_preset_password_mobile_onlyPtr
+          .asFunction<WireSyncReturn Function()>();
+
   void wire_send_url_scheme(
     int port_,
     ffi.Pointer<wire_uint_8_list> _url,
@@ -12110,6 +12164,21 @@ class ModuloaisWire implements FlutterRustBridgeWireBase {
           WireSyncReturn Function(
               ffi.Pointer<wire_uint_8_list>)>>('wire_main_get_hard_option');
   late final _wire_main_get_hard_option = _wire_main_get_hard_optionPtr
+      .asFunction<WireSyncReturn Function(ffi.Pointer<wire_uint_8_list>)>();
+
+  WireSyncReturn wire_main_get_buildin_option(
+    ffi.Pointer<wire_uint_8_list> key,
+  ) {
+    return _wire_main_get_buildin_option(
+      key,
+    );
+  }
+
+  late final _wire_main_get_buildin_optionPtr = _lookup<
+      ffi.NativeFunction<
+          WireSyncReturn Function(
+              ffi.Pointer<wire_uint_8_list>)>>('wire_main_get_buildin_option');
+  late final _wire_main_get_buildin_option = _wire_main_get_buildin_optionPtr
       .asFunction<WireSyncReturn Function(ffi.Pointer<wire_uint_8_list>)>();
 
   void wire_main_check_hwcodec(
