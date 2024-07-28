@@ -1,7 +1,7 @@
 [package]
 name = "moduloais-portable-packer"
 version = "1.2.7"
-edition = "2024"
+edition = "2021"
 description = "Modulo AIS Remote Desktop"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
