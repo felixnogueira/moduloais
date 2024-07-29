@@ -24,7 +24,7 @@ mkdir -p %{buildroot}/usr/share/icons/hicolor/256x256/apps/
 mkdir -p %{buildroot}/usr/share/icons/hicolor/scalable/apps/
 install -m 755 $HBB/target/release/moduloais %{buildroot}/usr/bin/moduloais
 install $HBB/libsciter-gtk.so %{buildroot}/usr/lib/moduloais/libsciter-gtk.so
-install $HBB/res/rustdesk.service %{buildroot}/usr/share/moduloais/files/
+install $HBB/res/moduloais.service %{buildroot}/usr/share/moduloais/files/
 install $HBB/res/128x128@2x.png %{buildroot}/usr/share/icons/hicolor/256x256/apps/moduloais.png
 install $HBB/res/scalable.svg %{buildroot}/usr/share/icons/hicolor/scalable/apps/moduloais.svg
 install $HBB/res/moduloais.desktop %{buildroot}/usr/share/moduloais/files/
@@ -33,7 +33,7 @@ install $HBB/res/moduloais-link.desktop %{buildroot}/usr/share/moduloais/files/
 %files
 /usr/bin/moduloais
 /usr/lib/moduloais/libsciter-gtk.so
-/usr/share/moduloais/files/rustdesk.service
+/usr/share/moduloais/files/moduloais.service
 /usr/share/icons/hicolor/256x256/apps/moduloais.png
 /usr/share/icons/hicolor/scalable/apps/moduloais.svg
 /usr/share/moduloais/files/moduloais.desktop
@@ -57,7 +57,7 @@ case "$1" in
 esac
 
 %post
-cp /usr/share/moduloais/files/rustdesk.service /etc/systemd/system/rustdesk.service
+cp /usr/share/moduloais/files/moduloais.service /etc/systemd/system/moduloais.service
 cp /usr/share/moduloais/files/moduloais.desktop /usr/share/applications/
 cp /usr/share/moduloais/files/moduloais-link.desktop /usr/share/applications/
 systemctl daemon-reload
@@ -71,7 +71,7 @@ case "$1" in
     # for uninstall
     systemctl stop moduloais || true
     systemctl disable moduloais || true
-    rm /etc/systemd/system/rustdesk.service || true
+    rm /etc/systemd/system/moduloais.service || true
   ;;
   1)
     # for upgrade

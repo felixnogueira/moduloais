@@ -5,7 +5,7 @@
 # arg 1:  the new package version
 post_install() {
 	# do something here
-	cp /usr/share/moduloais/files/rustdesk.service /etc/systemd/system/rustdesk.service
+	cp /usr/share/moduloais/files/moduloais.service /etc/systemd/system/moduloais.service
 	cp /usr/share/moduloais/files/moduloais.desktop /usr/share/applications/
 	cp /usr/share/moduloais/files/moduloais-link.desktop /usr/share/applications/
 	systemctl daemon-reload
@@ -23,7 +23,7 @@ pre_upgrade() {
 # arg 1:  the new package version
 # arg 2:  the old package version
 post_upgrade() {
-	cp /usr/share/moduloais/files/rustdesk.service /etc/systemd/system/rustdesk.service
+	cp /usr/share/moduloais/files/moduloais.service /etc/systemd/system/moduloais.service
 	cp /usr/share/moduloais/files/moduloais.desktop /usr/share/applications/
 	cp /usr/share/moduloais/files/moduloais-link.desktop /usr/share/applications/
 	systemctl daemon-reload
@@ -36,7 +36,7 @@ post_upgrade() {
 pre_remove() {
 	systemctl stop moduloais || true
 	systemctl disable moduloais || true
-	rm /etc/systemd/system/rustdesk.service || true
+	rm /etc/systemd/system/moduloais.service || true
 }
 
 # arg 1:  the old package version

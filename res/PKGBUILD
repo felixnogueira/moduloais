@@ -27,7 +27,7 @@ package() {
   fi
   mkdir -p "${pkgdir}/usr/bin"
   pushd ${pkgdir} && ln -s /usr/lib/moduloais/moduloais usr/bin/moduloais && popd
-  install -Dm 644 $HBB/res/rustdesk.service -t "${pkgdir}/usr/share/moduloais/files"
+  install -Dm 644 $HBB/res/moduloais.service -t "${pkgdir}/usr/share/moduloais/files"
   install -Dm 644 $HBB/res/moduloais.desktop -t "${pkgdir}/usr/share/moduloais/files"
   install -Dm 644 $HBB/res/moduloais-link.desktop -t "${pkgdir}/usr/share/moduloais/files"
   install -Dm 644 $HBB/res/128x128@2x.png "${pkgdir}/usr/share/icons/hicolor/256x256/apps/moduloais.png"

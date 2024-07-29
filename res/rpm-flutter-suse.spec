@@ -21,7 +21,7 @@ The best open-source remote desktop client software, written in Rust.
 
 mkdir -p "%{buildroot}/usr/lib/moduloais" && cp -r ${HBB}/flutter/build/linux/x64/release/bundle/* -t "%{buildroot}/usr/lib/moduloais"
 mkdir -p "%{buildroot}/usr/bin"
-install -Dm 644 $HBB/res/rustdesk.service -t "%{buildroot}/usr/share/moduloais/files"
+install -Dm 644 $HBB/res/moduloais.service -t "%{buildroot}/usr/share/moduloais/files"
 install -Dm 644 $HBB/res/moduloais.desktop -t "%{buildroot}/usr/share/moduloais/files"
 install -Dm 644 $HBB/res/moduloais-link.desktop -t "%{buildroot}/usr/share/moduloais/files"
 install -Dm 644 $HBB/res/128x128@2x.png "%{buildroot}/usr/share/icons/hicolor/256x256/apps/moduloais.png"
@@ -29,7 +29,7 @@ install -Dm 644 $HBB/res/scalable.svg "%{buildroot}/usr/share/icons/hicolor/scal
 
 %files
 /usr/lib/moduloais/*
-/usr/share/moduloais/files/rustdesk.service
+/usr/share/moduloais/files/moduloais.service
 /usr/share/icons/hicolor/256x256/apps/moduloais.png
 /usr/share/icons/hicolor/scalable/apps/moduloais.svg
 /usr/share/moduloais/files/moduloais.desktop
@@ -52,7 +52,7 @@ case "$1" in
 esac
 
 %post
-cp /usr/share/moduloais/files/rustdesk.service /etc/systemd/system/rustdesk.service
+cp /usr/share/moduloais/files/moduloais.service /etc/systemd/system/moduloais.service
 cp /usr/share/moduloais/files/moduloais.desktop /usr/share/applications/
 cp /usr/share/moduloais/files/moduloais-link.desktop /usr/share/applications/
 ln -s /usr/lib/moduloais/moduloais /usr/bin/moduloais
@@ -67,7 +67,7 @@ case "$1" in
     # for uninstall
     systemctl stop moduloais || true
     systemctl disable moduloais || true
-    rm /etc/systemd/system/rustdesk.service || true
+    rm /etc/systemd/system/moduloais.service || true
   ;;
   1)
     # for upgrade

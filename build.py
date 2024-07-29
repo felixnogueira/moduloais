@@ -316,7 +316,7 @@ def build_flutter_deb(version, features):
     system2(
         f'cp -r {flutter_build_dir}/* tmpdeb/usr/lib/moduloais/')
     system2(
-        'cp ../res/rustdesk.service tmpdeb/usr/share/moduloais/files/systemd/')
+        'cp ../res/moduloais.service tmpdeb/usr/share/moduloais/files/systemd/')
     system2(
         'cp ../res/128x128@2x.png tmpdeb/usr/share/icons/hicolor/256x256/apps/moduloais.png')
     system2(
@@ -339,7 +339,7 @@ def build_flutter_deb(version, features):
     system2('mkdir -p tmpdeb/DEBIAN')
     generate_control_file(version)
     system2('cp -a ../res/DEBIAN/* tmpdeb/DEBIAN/')
-    md5_file('usr/share/moduloais/files/systemd/rustdesk.service')
+    md5_file('usr/share/moduloais/files/systemd/moduloais.service')
     system2('dpkg-deb -b tmpdeb moduloais.deb;')
 
     system2('/bin/rm -rf tmpdeb/')
@@ -361,7 +361,7 @@ def build_deb_from_folder(version, binary_folder):
     system2(
         f'cp -r ../{binary_folder}/* tmpdeb/usr/lib/moduloais/')
     system2(
-        'cp ../res/rustdesk.service tmpdeb/usr/share/moduloais/files/systemd/')
+        'cp ../res/moduloais.service tmpdeb/usr/share/moduloais/files/systemd/')
     system2(
         'cp ../res/128x128@2x.png tmpdeb/usr/share/icons/hicolor/256x256/apps/moduloais.png')
     system2(
@@ -378,7 +378,7 @@ def build_deb_from_folder(version, binary_folder):
     system2('mkdir -p tmpdeb/DEBIAN')
     generate_control_file(version)
     system2('cp -a ../res/DEBIAN/* tmpdeb/DEBIAN/')
-    md5_file('usr/share/moduloais/files/systemd/rustdesk.service')
+    md5_file('usr/share/moduloais/files/systemd/moduloais.service')
     system2('dpkg-deb -b tmpdeb moduloais.deb;')
 
     system2('/bin/rm -rf tmpdeb/')
@@ -591,7 +591,7 @@ def main():
                 system2('mkdir -p tmpdeb/usr/share/icons/hicolor/256x256/apps/')
                 system2('mkdir -p tmpdeb/usr/share/icons/hicolor/scalable/apps/')
                 system2(
-                    'cp res/rustdesk.service tmpdeb/usr/share/moduloais/files/systemd/')
+                    'cp res/moduloais.service tmpdeb/usr/share/moduloais/files/systemd/')
                 system2(
                     'cp res/128x128@2x.png tmpdeb/usr/share/icons/hicolor/256x256/apps/moduloais.png')
                 system2(
@@ -611,7 +611,7 @@ def main():
                 system2('mkdir -p tmpdeb/usr/lib/moduloais')
                 system2('mv tmpdeb/usr/bin/moduloais tmpdeb/usr/lib/moduloais/')
                 system2('cp libsciter-gtk.so tmpdeb/usr/lib/moduloais/')
-                md5_file('usr/share/moduloais/files/systemd/rustdesk.service')
+                md5_file('usr/share/moduloais/files/systemd/moduloais.service')
                 md5_file('etc/moduloais/startwm.sh')
                 md5_file('etc/X11/moduloais/xorg.conf')
                 md5_file('etc/pam.d/moduloais')
