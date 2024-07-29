@@ -88,7 +88,7 @@ if __name__ == '__main__':
     parser.add_option("-l", "--level", dest="level", type="int",
                       help="compression level, default is 11, highest", default=11)
     (options, args) = parser.parse_args()
-    folder = options.folder or './moduloais'
+    folder = options.folder or '../moduloais'
     output_folder = os.path.abspath(options.output_folder or './')
 
     if not options.executable:
