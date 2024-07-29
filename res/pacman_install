@@ -17,7 +17,7 @@ post_install() {
 # arg 1:  the new package version
 # arg 2:  the old package version
 pre_upgrade() {
-    systemctl stop rustdesk || true
+    systemctl stop moduloais || true
 }
 
 # arg 1:  the new package version

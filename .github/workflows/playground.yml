@@ -186,7 +186,7 @@ jobs:
           cargo -V
           rustc -V
 
-      - name: Build rustdesk
+      - name: Build moduloais
         run: |
           ./build.py --flutter ${{ matrix.job.extra-build-args }}
 
@@ -195,7 +195,7 @@ jobs:
           CREATE_DMG="$(command -v create-dmg)"
           CREATE_DMG="$(readlink -f "$CREATE_DMG")"
           sed -i -e 's/MAXIMUM_UNMOUNTING_ATTEMPTS=3/MAXIMUM_UNMOUNTING_ATTEMPTS=7/' "$CREATE_DMG"
-          create-dmg --icon "RustDesk.app" 200 190 --hide-extension "RustDesk.app" --window-size 800 400 --app-drop-link 600 185 rustdesk-${{ env.VERSION }}-${{ matrix.job.arch }}.dmg ./flutter/build/macos/Build/Products/Release/RustDesk.app
+          create-dmg --icon "RustDesk.app" 200 190 --hide-extension "RustDesk.app" --window-size 800 400 --app-drop-link 600 185 moduloais-${{ env.VERSION }}-${{ matrix.job.arch }}.dmg ./flutter/build/macos/Build/Products/Release/RustDesk.app
 
       - name: Codesign app and create signed dmg
         if: env.MACOS_P12_BASE64 != null
@@ -210,14 +210,14 @@ jobs:
           # start sign the rustdesk.app and dmg
           rm -rf *.dmg || true
           codesign --force --options runtime -s ${{ secrets.MACOS_CODESIGN_IDENTITY }} --deep --strict ./flutter/build/macos/Build/Products/Release/RustDesk.app -vvv
-          create-dmg --icon "RustDesk.app" 200 190 --hide-extension "RustDesk.app" --window-size 800 400 --app-drop-link 600 185 rustdesk-${{ env.VERSION }}.dmg ./flutter/build/macos/Build/Products/Release/RustDesk.app
-          codesign --force --options runtime -s ${{ secrets.MACOS_CODESIGN_IDENTITY }} --deep --strict rustdesk-${{ env.VERSION }}.dmg -vvv
+          create-dmg --icon "RustDesk.app" 200 190 --hide-extension "RustDesk.app" --window-size 800 400 --app-drop-link 600 185 moduloais-${{ env.VERSION }}.dmg ./flutter/build/macos/Build/Products/Release/RustDesk.app
+          codesign --force --options runtime -s ${{ secrets.MACOS_CODESIGN_IDENTITY }} --deep --strict moduloais-${{ env.VERSION }}.dmg -vvv
           # notarize the rustdesk-${{ env.VERSION }}.dmg
-          rcodesign notary-submit --api-key-path ${{ github.workspace }}/rustdesk.json  --staple rustdesk-${{ env.VERSION }}.dmg
+          rcodesign notary-submit --api-key-path ${{ github.workspace }}/rustdesk.json  --staple moduloais-${{ env.VERSION }}.dmg
 
-      - name: Rename rustdesk
+      - name: Rename moduloais
         run: |
-          for name in rustdesk*??.dmg; do
+          for name in moduloais*??.dmg; do
               mv "$name" "${name%%.dmg}-${{ matrix.job.arch }}-flutter${{ matrix.job.flutter }}-flutter${{ matrix.job.date }}.dmg"
           done
 
@@ -227,12 +227,12 @@ jobs:
           prerelease: true
           tag_name: ${{ env.TAG_NAME }}
           files: |
-            rustdesk*-${{ matrix.job.arch }}*.dmg
+            moduloais*-${{ matrix.job.arch }}*.dmg
 
 
-  build-rustdesk-android:
+  build-moduloais-android:
     if: false
-    name: build rustdesk android apk ${{ matrix.job.target }}
+    name: build moduloais android apk ${{ matrix.job.target }}
     runs-on: ${{ matrix.job.os }}
     strategy:
       fail-fast: false
@@ -361,7 +361,7 @@ jobs:
             ;;
           esac
 
-      - name: Build rustdesk
+      - name: Build moduloais
         shell: bash
         env:
           JAVA_HOME: /usr/lib/jvm/java-11-openjdk-amd64

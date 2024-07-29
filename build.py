@@ -318,9 +318,9 @@ def build_flutter_deb(version, features):
     system2(
         'cp ../res/rustdesk.service tmpdeb/usr/share/moduloais/files/systemd/')
     system2(
-        'cp ../res/128x128@2x.png tmpdeb/usr/share/icons/hicolor/256x256/apps/rustdesk.png')
+        'cp ../res/128x128@2x.png tmpdeb/usr/share/icons/hicolor/256x256/apps/moduloais.png')
     system2(
-        'cp ../res/scalable.svg tmpdeb/usr/share/icons/hicolor/scalable/apps/rustdesk.svg')
+        'cp ../res/scalable.svg tmpdeb/usr/share/icons/hicolor/scalable/apps/moduloais.svg')
     system2(
         'cp ../res/moduloais.desktop tmpdeb/usr/share/applications/moduloais.desktop')
     system2(
@@ -432,8 +432,8 @@ def build_flutter_windows(version, features, skip_portable_pack):
     os.chdir('libs/portable')
     system2('pip3 install -r requirements.txt')
     system2(
-        f'python3 ./generate.py -f ../../{flutter_build_dir_2} -o . -e ../../{flutter_build_dir_2}/moduloais.exe')
-    os.chdir('../..')
+        f'python3 ./generate.py -f ../../../{flutter_build_dir_2} -o . -e ../../../{flutter_build_dir_2}/moduloais.exe')
+    os.chdir('../../..')
     if os.path.exists('./moduloais_portable.exe'):
         os.replace('./target/release/moduloais-portable-packer.exe',
                    './moduloais_portable.exe')
@@ -488,7 +488,7 @@ def main():
             # https://certera.com/kb/tutorial-guide-for-safenet-authentication-client-for-code-signing/
             system2(
                 f'signtool sign /a /v /p {pa} /debug /f .\\cert.pfx /t http://timestamp.digicert.com  '
-                'target\\release\\rustdesk.exe')
+                'target\\release\\moduloais.exe')
         else:
             print('Not signed')
         system2(
