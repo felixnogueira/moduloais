@@ -177,7 +177,7 @@ def replace_app_name_in_langs(app_name):
         with open(file_path, "r") as f:
             lines = f.readlines()
         for i, line in enumerate(lines):
-            lines[i] = line.replace("RustDesk", app_name)
+            lines[i] = line.replace("ModuloAIS", app_name)
         with open(file_path, "w") as f:
             f.writelines(lines)
 

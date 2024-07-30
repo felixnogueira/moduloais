@@ -10,13 +10,13 @@ This file contains the declaration of all the localizable strings.
 	<!-- General strings -->
 	<String Id="DowngradeError" Value="A newer version of [ProductName] is already installed." />
 
-	<String Id="AR_Comment" Value="RustDesk" />
+	<String Id="AR_Comment" Value="ModuloAIS" />
 
-	<String Id="F_App" Value="RustDesk" />
-	<String Id="F_App_Desc" Value="RustDesk - Main programs installations." />
+	<String Id="F_App" Value="ModuloAIS" />
+	<String Id="F_App_Desc" Value="ModuloAIS - Main programs installations." />
 
-	<String Id="SC_Uninstall" Value="Uninstall RustDesk" />
-	<String Id="SC_Uninstall_Desc" Value="Removes RustDesk or parts of it from the computer" />
+	<String Id="SC_Uninstall" Value="Uninstall ModuloAIS" />
+	<String Id="SC_Uninstall_Desc" Value="Removes ModuloAIS or parts of it from the computer" />
 
 	<!-- Client related strings -->
 	<String Id="F_Client" Value="Client" />
@@ -26,19 +26,19 @@ This file contains the declaration of all the localizable strings.
 	<String Id="F_LAVFilters" Value="LAV Filters" />
 	<String Id="F_LAVFilters_Desc" Value="Recommended directshow filters for best audio and video playback experience." />
 
-	<String Id="SC_Client" Value="RustDesk" />
-	<String Id="SC_Client_Desc" Value="Start RustDesk." />
+	<String Id="SC_Client" Value="ModuloAIS" />
+	<String Id="SC_Client_Desc" Value="Start ModuloAIS." />
 
-	<String Id="SC_Client_Tray" Value="RustDesk Tray" />
-	<String Id="SC_Client_Tray_Desc" Value="Start RustDesk tray." />
+	<String Id="SC_Client_Tray" Value="ModuloAIS Tray" />
+	<String Id="SC_Client_Tray_Desc" Value="Start ModuloAIS tray." />
 
 	<!-- Server related strings -->
 	<String Id="F_Server" Value="Server" />
-	<String Id="F_Server_Desc" Value="The server part of RustDesk. Provides the MediaLibrary and other services." />
+	<String Id="F_Server_Desc" Value="The server part of ModuloAIS. Provides the MediaLibrary and other services." />
 	<String Id="F_Server_Plugins" Value="Plugins" />
 	<String Id="F_Server_Plugins_Desc" Value="Plugins for the server." />
 
-	<String Id="Service_DisplayName" Value="RustDesk Service" />
+	<String Id="Service_DisplayName" Value="ModuloAIS Service" />
 	<String Id="Service_Description" Value="This service runs the RustDesk Server." />
 
 	<!-- Launch Conditions -->

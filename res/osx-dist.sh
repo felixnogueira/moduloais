@@ -8,7 +8,7 @@ cd flutter; flutter pub get; cd -
 rm moduloais-$VERSION.dmg
 # security find-identity -v
 codesign --force --options runtime -s $MACOS_CODESIGN_IDENTITY --deep --strict ./flutter/build/macos/Build/Products/Release/ModuloAIS.app -vvv
-create-dmg --icon "RustDesk.app" 200 190 --hide-extension "RustDesk.app" --window-size 800 400 --app-drop-link 600 185 moduloais-$VERSION.dmg ./flutter/build/macos/Build/Products/Release/RustDesk.app
+create-dmg --icon "ModuloAIS.app" 200 190 --hide-extension "ModuloAIS.app" --window-size 800 400 --app-drop-link 600 185 moduloais-$VERSION.dmg ./flutter/build/macos/Build/Products/Release/ModuloAIS.app
 codesign --force --options runtime -s $MACOS_CODESIGN_IDENTITY --deep --strict moduloais-$VERSION.dmg -vvv
 # notarize the rustdesk-${{ env.VERSION }}.dmg
 rcodesign notary-submit --api-key-path ~/.p12/api-key.json  --staple moduloais-$VERSION.dmg
