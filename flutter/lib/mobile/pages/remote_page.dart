@@ -561,7 +561,7 @@ class _RemotePageState extends State<RemotePage> {
         !gFFI.ffiModel.keyboard) {
       return [];
     }
-    final enabled = versionCmp(gFFI.ffiModel.pi.version, '1.2.7') >= 0;
+    final enabled = versionCmp(gFFI.ffiModel.pi.version, '1.3.0') >= 0;
     if (!enabled) return [];
     return [
       TTextMenu(
