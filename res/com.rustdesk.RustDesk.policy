@@ -4,7 +4,7 @@
  "http://www.freedesktop.org/standards/PolicyKit/1/policyconfig.dtd">
 <policyconfig>
   <vendor>ModuloAIS</vendor>
-  <vendor_url>https://rustdesk.com/</vendor_url>
+  <vendor_url>https://aislabs.io/</vendor_url>
   <icon_name>rustdesk</icon_name>
   <action id="com.rustdesk.RustDesk.options">
     <description>Change ModuloAIS options</description>

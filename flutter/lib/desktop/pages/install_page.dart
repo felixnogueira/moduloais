@@ -177,7 +177,7 @@ class _InstallPageBodyState extends State<_InstallPageBody>
                           InkWell(
                             hoverColor: Colors.transparent,
                             onTap: () => launchUrlString(
-                                'https://rustdesk.com/privacy.html'),
+                                'https://aislabs.io/privacy.html'),
                             child: Tooltip(
                               message: 'https://rustdesk.com/privacy.html',
                               child: Row(children: [
